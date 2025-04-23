@@ -1,0 +1,7 @@
+PyPDF2
+python-docx
+Pillow
+python-magic
+reportlab
+PyQt5
+pywin32
