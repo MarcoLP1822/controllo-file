@@ -1,7 +1,9 @@
-PyPDF2
-python-docx
-Pillow
-python-magic
-reportlab
-PyQt5
-pywin32
+chardet==5.2.0
+pillow==11.2.1
+pypdf==5.4.0
+PyPDF2==3.0.1
+PyQt5==5.15.11
+PyQt5-Qt5==5.15.2
+PyQt5_sip==12.17.0
+python-magic-bin==0.4.14
+reportlab==4.4.0
