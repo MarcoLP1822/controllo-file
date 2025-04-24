@@ -1,0 +1,28 @@
+2025-04-24 11:43:10 | ERROR    | file_checker | Errore controllo font: seek of closed file
+2025-04-24 11:43:10 | ERROR    | file_checker | Errore nell'analisi di \\192.168.100.20\ycp\REPOSITORY\PUBBLICAZIONE\354905_Gashi Arbron\Quello che il silenzio nasconde\DEF\20122_GASHI_IMPAGINATO_15x21_19052021.pdf
+Traceback (most recent call last):
+  File "file_checker\core\analyzer.py", line 154, in analizza_file
+  File "file_checker\core\analyzer.py", line 183, in _analizza_pdf
+  File "pypdf\_page.py", line 2505, in __len__
+  File "pypdf\_doc_common.py", line 357, in get_num_pages
+  File "pypdf\_doc_common.py", line 1161, in _flatten
+  File "pypdf\_reader.py", line 209, in root_object
+  File "pypdf\generic\_base.py", line 909, in is_null_or_none
+  File "pypdf\generic\_base.py", line 368, in get_object
+  File "pypdf\_reader.py", line 409, in get_object
+ValueError: seek of closed file
+2025-04-24 11:43:11 | ERROR    | file_checker | Errore controllo font: seek of closed file
+2025-04-24 11:43:11 | ERROR    | file_checker | Errore nell'analisi di \\192.168.100.20\ycp\REPOSITORY\PUBBLICAZIONE\354905_Gashi Arbron\Quello che il silenzio nasconde\DEF\20122_GASHI_COVER_15x21_19012024.pdf
+Traceback (most recent call last):
+  File "file_checker\core\analyzer.py", line 154, in analizza_file
+  File "file_checker\core\analyzer.py", line 183, in _analizza_pdf
+  File "pypdf\_page.py", line 2505, in __len__
+  File "pypdf\_doc_common.py", line 357, in get_num_pages
+  File "pypdf\_doc_common.py", line 1161, in _flatten
+  File "pypdf\_reader.py", line 209, in root_object
+  File "pypdf\generic\_base.py", line 909, in is_null_or_none
+  File "pypdf\generic\_base.py", line 368, in get_object
+  File "pypdf\_reader.py", line 409, in get_object
+ValueError: seek of closed file
+2025-04-24 11:43:18 | INFO     | file_checker | Report PDF generato: \\192.168.100.20\ycp\REPOSITORY\PUBBLICAZIONE\354905_Gashi Arbron\Quello che il silenzio nasconde\DEF\report.pdf
+2025-04-24 11:43:18 | INFO     | file_checker | Report testuale generato: \\192.168.100.20\ycp\REPOSITORY\PUBBLICAZIONE\354905_Gashi Arbron\Quello che il silenzio nasconde\DEF\report.txt

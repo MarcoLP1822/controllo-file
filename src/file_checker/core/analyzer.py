@@ -174,9 +174,7 @@ class FileAnalyzer:
     # ----- PDF -----
 
     def _analizza_pdf(self, percorso: str, tipo: str) -> AnalysisOutcome:
-        reader: PdfReader
-        with open(percorso, "rb") as fp:
-            reader = PdfReader(fp)
+        reader = PdfReader(percorso)
 
         protezione_ok = not reader.is_encrypted
         fonts_ok = protezione_ok and self._check_all_fonts_incorporati(reader)
