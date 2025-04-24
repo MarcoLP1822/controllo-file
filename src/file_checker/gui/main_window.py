@@ -40,48 +40,6 @@ from ..gui.worker import AnalysisWorker
 __all__ = ["FileCheckerMainWindow"]
 
 # ---------------------------------------------------------------------------
-# Worker thread (analisi in background)
-# ---------------------------------------------------------------------------
-
-
-class AnalysisWorker(QThread):
-    """Esegue il parsing e l'analisi dei file in un thread separato."""
-
-    finished = pyqtSignal(object, dict)  # SpecificheParser | Exception, risultati
-    error = pyqtSignal(str)
-
-    def __init__(
-        self,
-        testo_specifiche: str,
-        file_impaginato: Optional[Path],
-        file_copertina: Optional[Path],
-    ) -> None:
-        super().__init__()
-        self._testo = testo_specifiche
-        self._impaginato = file_impaginato
-        self._copertina = file_copertina
-
-    # ------------------------------------------------------------------
-    # Thread entry point
-    # ------------------------------------------------------------------
-
-    def run(self) -> None:  # noqa: D401
-        try:
-            parser = SpecificheParser(self._testo)
-            specifiche = parser.get_specifiche()
-            analyzer = FileAnalyzer(specifiche.__dict__)  # usa dict interno
-            risultati: Dict[str, AnalysisOutcome] = {}
-            if self._impaginato:
-                risultati["impaginato"] = analyzer.analizza_file(str(self._impaginato), "impaginato")
-            if self._copertina:
-                risultati["copertina"] = analyzer.analizza_file(str(self._copertina), "copertina")
-            self.finished.emit(specifiche, risultati)  # type: ignore[arg-type]
-        except Exception as exc:  # pragma: no cover
-            logger.exception("Errore AnalisiWorker: %s", exc)
-            self.error.emit(str(exc))
-
-
-# ---------------------------------------------------------------------------
 # Finestra principale
 # ---------------------------------------------------------------------------
 

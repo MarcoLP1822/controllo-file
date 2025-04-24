@@ -8,6 +8,9 @@ from file_checker.gui.main_window import FileCheckerMainWindow
 def main() -> None:
     app = QApplication(sys.argv)
     app.setFont(QFont("Segoe UI", 10))
-    window = FileCheckerApp()
+    window = FileCheckerMainWindow()
     window.show()
     sys.exit(app.exec_())
+
+if __name__ == "__main__":
+    main()
