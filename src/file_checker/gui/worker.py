@@ -4,10 +4,9 @@ from __future__ import annotations
 
 Thread di analisi in background per non bloccare la GUI Qt.
 """
-
 from pathlib import Path
 from typing import Dict, Optional
-
+from dataclasses import asdict
 from PyQt5.QtCore import QThread, pyqtSignal
 
 from ..core.parser import SpecificheParser
@@ -42,7 +41,7 @@ class AnalysisWorker(QThread):
         try:
             parser = SpecificheParser(self._testo)
             specifiche = parser.get_specifiche()
-            analyzer = FileAnalyzer(specifiche.__dict__)  # usa dict interno per compatibilità
+            analyzer = FileAnalyzer(asdict(specifiche))
             risultati: Dict[str, AnalysisOutcome] = {}
             if self._impaginato:
                 risultati["impaginato"] = analyzer.analizza_file(str(self._impaginato), "impaginato")
